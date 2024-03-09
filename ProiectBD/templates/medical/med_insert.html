@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Medical equipment</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/insert.css">
+    <style>
+        body {
+    background-color: #f4e4eb;
+    }
+        .highlight-dept {
+            color: #008080;
+            cursor: pointer;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <p class="ex1"><b><h1>Medical equipment</h1></b></p>
+
+        <form action="/medical/med_insert" method="post">
+            <label for="dept_input">Choose a department:</label>
+            <select id="dept_input" name="dept" required>
+                {% for dept in departments %}
+                <option value="{{dept[0]}}">
+                    {{dept[1]}}
+                </option>
+                {% endfor %}
+            </select><br>
+            <label for="name">Equipment name:</label><br>
+            <input type="text" id="name" name="name"><br>
+            <label for="afu">Available for use:</label><br>
+            <input type="text" id="afu" name="afu"><br>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+
+        <a href="/medical/afisare_med" class="highlight-dept">Afisare medical equipment</a>
+    </div>
+
+    <a href="/menu">
+        <h2> Inapoi </h2>
+    </a>
+</body>
+</html>

@@ -1,0 +1,133 @@
+@startuml
+
+top to bottom direction
+skinparam ArrowThickness 2
+skinparam scale 2
+skinparam linetype ortho
+
+left to right direction
+
+class DEPARTMENTS
+{
+    {field}DEPARTMENT_ID:number <<generated PK>>
+    {field}DEPARTMENT_NAME:VARCHAR2(50) <<CK>>
+    {field}MANAGER_FIRST_NAME:VARCHAR2(50) <<CK>>
+    {field}MANAGER_LAST_NAME:VARCHAR2(50) <<CK>>
+}
+
+DEPARTMENTS ---|> DOCTORS : "DEPARTMENT_ID:ID"
+
+class DOCTORS
+{
+    {field}DOCTOR_ID:number <<generated PK>>
+    {field}DOCTOR_FIRST_NAME:VARCHAR2(50) <<CK>>
+    {field}DOCTOR_LAST_NAME:VARCHAR2(50) <<CK>>
+    {field}HIRE_DATE:DATE <<CK>>
+    {field}SALARY:number <<CK>>
+    {field}DEPARTMENT_ID:number <<FK>>
+}
+
+DOCTORS ---|> PATIENTS : "DOCTOR_ID:ID"
+
+class PATIENTS
+{
+    {field}PATIENT_I:number <<generated PK>>
+    {field}PATIENT_FIRST_NAME:VARCHAR2(50) <<CK>>
+    {field}PATIENT_LAST_NAME:VARCHAR2(50) <<CK>>
+    {field}DATE_OF_BIRTH:DATE
+    {field}BLOOD_TYPE:VARCHAR2(5) <<CK>>
+    {field}MEDICAL_INSURANCE:VARCHAR2(10) <<CK>>
+    {field}DOCTOR_ID:number <<FK>>
+}
+
+DEPARTMENTS ---|> MEDICAL_EQUIPMENT : "DEPARTMENT_ID:ID"
+
+class MEDICAL_EQUIPMENT
+{
+    {field}EQUIPMENT_ID:number <<generated PK>>
+    {field}EQUIPMENT_NAME:VARCHAR2(50) <<CK>>
+    {field}AVAILABLE_FOR_USE:number
+    {field}DEPARTMENT_ID:number <<FK>>
+}
+
+MEDICAL_EQUIPMENT ---|> INVENTORY_EQUIPMENT : "EQUIPMENT_ID:ID"
+
+class INVENTORY_EQUIPMENT
+{
+    {field}INVENTORY_EQUIPMENT_ID:number <<generated PK>>
+    {field}QUANTITY:number <<CK>>
+    {field}CONDITION:VARCHAR2(50) <<CK>>
+    {field}BUYING_DATE:DATE <<CK>>
+    {field}EQUIPMENT_ID:number <<FK>>
+}
+
+DEPARTMENTS ---|> ADMINISTRATIVE_BRANCH_PER_DEPARTMENT : "DEPARTMENT_ID:ID"
+
+class ADMINISTRATIVE_BRANCH_PER_DEPARTMENT
+{
+    {field}ADMINISTRATIVE_BRANCH_PER_DEPARTMENT_ID:number <<generated PK>>
+    {field}FIRST_NAME:VARCHAR2(50) <<CK>>
+    {field}LAST_NAME:VARCHAR2(50) <<CK>>
+    {field}POSITION:VARCHAR2(50) <<CK>>
+    {field}SALARY:number <<CK>>
+    {field}HIRE_DATE:DATE <<CK>>
+    {field}DEPARTMENT_ID:number <<FK>>
+}
+
+DEPARTMENTS ---|> NURSES : "DEPARTMENT_ID:ID"
+
+class NURSES
+{
+    {field}NURSES_ID:number <<generated PK>>
+    {field}FIRST_NAME:VARCHAR2(50) <<CK>>
+    {field}LAST_NAME:VARCHAR2(50) <<CK>>
+    {field}SPECIALIZATION:VARCHAR2(50) <<CK>>
+    {field}SALARY:number <<CK>>
+    {field}HIRE_DATE:DATE <<CK>>
+    {field}DEPARTMENT_ID:number <<FK>>
+}
+
+PATIENTS ---|> PATIENT_HISTORY : "PATIENT_ID:ID"
+
+class PATIENT_HISTORY
+{
+    {field}PATIENT_HISTORY_ID:number <<generated PK>>
+    {field}MODIFICATION_DATE:DATE <<CK>>
+    {field}MODIFICATION:VARCHAR2(50) <<CK>>
+    {field}PATIENT_ID:number <<FK>>
+}
+
+class DRUG_INFO
+{
+    {field}INFO_ID:number <<generated PK>>
+    {field}SIDE_EFFECTS:VARCHAR2(50) <<UK>>
+    {field}PRICE:number <<UK>>
+    {method}(SIDE_EFFECTS,PRICE) <<UK>>
+}
+
+DRUG_INFO ||---|| DRUGS : "INFO_ID:ID"
+
+class DRUGS
+{
+    {field}DRUG_ID:number <<generated PK>>
+    {field}DRUG_NAME:VARCHAR2(50) <<UK>>
+    {field}AVAILABLE_FOR_USE:number <<CK>>
+    {field}MANUFACTURER:VARCHAR2(50) <<CK>>
+    {field}DEPARTMENT_ID:number <<FK>>
+    {field}INFO_ID:number <<FK>>
+}
+
+DEPARTMENTS ---|> DRUGS : "DEPARTMENT_ID:ID"
+
+class DRUG_TRANSACTIONS
+{
+    {field}DRUG_TRANSACTIONS_ID:number <<generated PK>>
+    {field}QUANTITY_BOUGHT:number <<CK>>
+    {field}ACQUISITION_DATE:DATE <<CK>>
+    {field}SELLER:VARCHAR2(50) <<CK>>
+    {field}DRUG_ID:number <<FK>>
+}
+
+DRUGS ---|> DRUG_TRANSACTIONS : "DRUG_ID:ID"
+
+@enduml

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Liberty hospital</title>
+    <style>
+        img{
+            width:75%;
+            border: 2px solid black;
+            padding: 25px;
+            display:block;
+            margin-left:auto;
+            margin-right:auto;
+            background-color:turquoise;
+        }
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .semicentered{
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color:purple;
+        }
+        .h1{
+            font-size: 2.5em;
+        }
+        .h2{
+            font-size: 2.5em;
+        }
+    </style>
+</head>
+<body>
+    <img src="{{ url_for('static', filename='images/banner.jpg') }}">
+    <div class="centered">
+        <h1> Inventarul spitalului libertății </h1>
+    </div>
+    <a href="menu">
+    <div class="semicentered">
+        <h2> Start </h2>
+    </div>
+    </a>
+</body>
+</html>

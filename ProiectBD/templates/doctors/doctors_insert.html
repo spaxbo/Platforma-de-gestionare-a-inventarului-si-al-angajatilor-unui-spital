@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctors</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/insert.css">
+    <style>
+        body {
+    background-color: #FFD3D3;
+    }
+        .highlight-dept {
+            color: #008000;
+            cursor: pointer;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <p class="ex1"><b><h1>Doctors</h1></b></p>
+
+        <form action="/doctors/doctors_insert" method="post">
+            <label for="dept_input">Choose a department:</label>
+            <select id="dept_input" name="dept" required>
+                {% for dept in departments %}
+                <option value="{{dept[0]}}">
+                    {{dept[1]}}
+                </option>
+                {% endfor %}
+            </select><br>
+            <label for="doctor_last">Doctor last name:</label><br>
+            <input type="text" id="doctor_last" name="doctor_last"><br>
+            <label for="doctor_first">Doctor first name:</label><br>
+            <input type="text" id="doctor_first" name="doctor_first"><br>
+            <label for="hire_date">Hire date:</label><br>
+            <input type="text" id="hire_date" name="hire_date"><br>
+            <label for="salary">Salary:</label><br>
+            <input type="text" id="salary" name="salary"><br>
+            <br>
+            <button type="submit">Submit</button>
+            <br>
+            <br>
+        </form>
+
+        <a href="/doctors/afisare_doctori" class="highlight-dept">Afisare doctori</a>
+        <br>
+        <a href="/menu">
+            <h2> Inapoi </h2>
+        </a>
+    </div>
+</body>
+</html>

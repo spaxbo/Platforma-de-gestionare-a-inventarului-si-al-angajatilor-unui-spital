@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Departments</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/insert.css">
+</head>
+<body>
+    <div>
+        <p class="ex1"><b><h1>Departments</h1></b></p>
+
+        <form action="/departments/index_dept" method="post">
+            <label for="dname">Department name:</label>
+            <input type="text" id="dname" name="dname">
+
+            <label for="manager_last">Manager last name:</label>
+            <input type="text" id="manager_last" name="manager_last">
+
+            <label for="manager_first">Manager first name:</label>
+            <input type="text" id="manager_first" name="manager_first">
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <a href="afisare_departament" class="highlight-dept">Afisare departamente</a>
+    </div>
+
+    <div class="flex-container">
+        <a href="/menu" class="block">
+            <h2> Inapoi </h2>
+        </a>
+    </div>
+</body>
+</html>

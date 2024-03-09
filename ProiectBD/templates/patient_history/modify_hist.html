@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modify pacient history</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/insert.css">
+    <style>
+        body {
+    background-color: #94a5a6;
+    }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <p class="ex1"><b><h1>Modify pacient history</h1></b></p>
+        <form method="post">
+            <label for="patient_input">Choose a patient:</label>
+            <select id="patient_input" name="patient" required>
+                {% for patient in patients %}
+                <option value="{{patient[0]}}">
+                    {{patient[1]}}
+                </option>
+                {% endfor %}
+            </select><br>
+            <label for="mod">Modification:</label>
+            <input type="text" id="mod" name="mod"><br>
+            <label for="mod_date">Modification date:</label>
+            <input type="text" id="mod_date" name="mod_date"><br>
+            <br>
+            <button type="submit">Modify</button>
+        </form>
+        <a href="/patient_history/afisare_history">
+            <h2> Inapoi </h2>
+        </a>
+    </div>
+</body>
+</html>

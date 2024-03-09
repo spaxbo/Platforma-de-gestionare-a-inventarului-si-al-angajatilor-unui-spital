@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Afisare branch</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/afisare.css">
+    <style>
+        body {
+            background-color: #d4edda; /* Verde pal */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 class="main-title">Afisare branch</h1>
+        <table class="data-table">
+            <tr>
+                <th>Department name</th>
+                <th>Last name</th>
+                <th>First name</th>
+                <th>Position</th>
+                <th>Salary</th>
+                <th>Hire date</th>
+                <th>Delete/Modify</th>
+            </tr>
+            {% for obj in date %}
+            <tr>
+                <td>{{ obj[7] }}</td>
+                <td>{{ obj[2] }}</td>
+                <td>{{ obj[1] }}</td>
+                <td>{{ obj[3] }}</td>
+                <td>{{ obj[4] }}</td>
+                <td>{{ obj[5] }}</td>
+                <td>
+                    <a href="delete_branch/{{ obj[0] }}" class="action-link">Delete</a><br>
+                    <a href="modify_branch/{{ obj[0] }}" class="action-link">Modify</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="branch_insert" class="back-link">
+            <h2 class="back-button">Inapoi</h2>
+        </a>
+    </div>
+</body>
+</html>

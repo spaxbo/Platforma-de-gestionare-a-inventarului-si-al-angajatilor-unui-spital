@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Afisare drug transactions</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/afisare.css">
+    <style>
+        body {
+    background-color: #3498db;
+    }
+    </style>
+</head>
+<body>
+    <p class="ex1"><b><h1>
+        Afisare drug transactions
+        </h1>
+        </b>
+    </p>
+    <table>
+        <tr>
+            <th>Drug name</th>
+            <th>Quantity bought</th>
+            <th>Acquisition date</th>
+            <th>Seller</th>
+            <th>Delete/Modify</th>
+        </tr>
+        {% for obj in date %}
+        <tr>
+            <td>
+                {{obj[5]}}
+            </td>
+            <td>
+                {{obj[1]}}
+            </td>
+            <td>
+                {{obj[2]}}
+            </td>
+            <td>
+                {{obj[3]}}
+            </td>
+            <td>
+                <a href="delete_trans/{{obj[0]}}">Delete</a><br>
+                <a href="modify_trans/{{obj[0]}}">Modify</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="insert_trans">
+        <h2> Inapoi </h2>
+    </a>
+</body>
+</html>

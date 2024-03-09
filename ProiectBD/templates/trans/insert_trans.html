@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drug transactions</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/insert.css">
+    <style>
+        body {
+    background-color: #3498db;
+    }
+        .highlight-dept {
+            color: #c0392b;
+            cursor: pointer;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <p class="ex1"><b><h1>Drug transactions</h1></b></p>
+        <form action="/trans/insert_trans" method="post">
+            <label for="drug_input">Choose a drug:</label>
+            <select id="drug_input" name="drug" required>
+                {% for drug in drugs %}
+                <option value="{{drug[0]}}">
+                    {{drug[1]}}
+                </option>
+                {% endfor %}
+            </select><br>
+            <label for="quan">Quantity bought:</label><br>
+            <input type="text" id="quan" name="quan"><br>
+            <label for="a_date">Acquisition date:</label><br>
+            <input type="text" id="a_date" name="a_date"><br>
+            <label for="seller">Seller:</label><br>
+            <input type="text" id="seller" name="seller"><br>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+        <a href="/trans/afisare_trans" class="highlight-dept">Afisare drug transactions
+        </a>
+        <br>
+        <a href="/menu">
+            <h2> Inapoi </h2>
+        </a>
+    </div>
+</body>
+</html>

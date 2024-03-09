@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modify inventory equipment</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/insert.css">
+    <style>
+        body {
+    background-color: #bc8f8f;
+    }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <p class="ex1"><b><h1>
+            Modify inventory equipment
+            </h1>
+            </b>
+        </p>
+        <form method="post">
+            <label for="eq_input">Choose an equipment:</label>
+            <select id="eq_input" name="eq" required>
+                {% for eq in equipments %}
+                <option value="{{eq[0]}}">
+                    {{eq[1]}}
+                </option>
+                {% endfor %}
+            </select><br>
+
+            <label for="quan">Quantity:</label>
+            <input type="text" id="quan" name="quan"><br>
+
+            <label for="cond">Choose a condition:</label>
+            <select name="cond" id="cond">
+                <option value="New">New</option>
+                <option value="Used">Used</option>
+                <option value="Broken">Broken</option>
+                <option value="Fixed">Fixed</option>
+            </select><br>
+
+            <label for="buy_date">Buying date:</label>
+            <input type="text" id="buy_date" name="buy_date"><br>
+
+            <br>
+            <button type="submit">Modify</button>
+        </form>
+        <a href="/inventory/afisare_inv">
+            <h2> Inapoi </h2>
+        </a>
+    </div>
+</body>
+</html>

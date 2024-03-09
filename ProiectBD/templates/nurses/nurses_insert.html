@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nurses</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/insert.css">
+    <style>
+        body {
+    background-color: #f5f5dc;
+    }
+        .highlight-dept {
+            color: #6a1b9a;
+            cursor: pointer;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <p class="ex1"><b><h1>Nurses</h1></b></p>
+
+        <form action="/nurses/nurses_insert" method="post">
+            <label for="dept_input">Choose a department:</label>
+            <select id="dept_input" name="dept" required>
+                {% for dept in departments %}
+                <option value="{{dept[0]}}">
+                    {{dept[1]}}
+                </option>
+                {% endfor %}
+            </select><br>
+            <label for="nurse_first_name">Nurse last name:</label><br>
+            <input type="text" id="nurse_first_name" name="nurse_first_name"><br>
+            <label for="nurse_last_name">Nurse first name:</label><br>
+            <input type="text" id="nurse_last_name" name="nurse_last_name"><br>
+            <label for="specialization">Specialization:</label><br>
+            <input type="text" id="specialization" name="specialization"><br>
+            <label for="salary">Salary:</label><br>
+            <input type="text" id="salary" name="salary"><br>
+            <label for="hire_date">Hire date:</label><br>
+            <input type="text" id="hire_date" name="hire_date"><br>
+            <br>
+            <button type="submit">Submit</button>
+            <br>
+            <br>
+        </form>
+
+        <a href="/nurses/afisare_nurses" class="highlight-dept">Afisare asistente
+        </a>
+    </div>
+
+    <a href="/menu" style="text-decoration: none;">
+        <h2 style="text-align: center; color: #333;"> Inapoi </h2>
+    </a>
+</body>
+</html>

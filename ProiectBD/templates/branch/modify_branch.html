@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modify branch</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/insert.css">
+    <style>
+        body {
+            background-color: #d4edda; /* Verde pal */
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <p class="ex1"><b><h1>Modify branch</h1></b></p>
+
+        <form method="post">
+            <label for="dept_input">Choose a department:</label>
+            <select id="dept_input" name="dept" required>
+                {% for dept in departments %}
+                <option value="{{dept[0]}}">
+                    {{dept[1]}}
+                </option>
+                {% endfor %}
+            </select><br>
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname"><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname"><br>
+            <label for="pos">Position:</label><br>
+            <input type="text" id="pos" name="pos"><br>
+            <label for="salary">Salary:</label><br>
+            <input type="text" id="salary" name="salary"><br>
+            <label for="hire_date">Hire date:</label><br>
+            <input type="text" id="hire_date" name="hire_date"><br>
+            <br>
+            <button type="submit">Modify</button>
+        </form>
+
+        <a href="/branch/afisare_branch">
+            <h2> Inapoi </h2>
+        </a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modify patient</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/insert.css">
+    <style>
+        body {
+    background-color: #ffA500;
+    }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <p class="ex1"><b><h1>Modify patient</h1></b></p>
+        <form method="post">
+            <label for="doc_input">Choose a doctor:</label>
+            <select id="doc_input" name="doc" required>
+                {% for doc in doctors %}
+                <option value="{{doc[0]}}">
+                    {{doc[1]}}
+                </option>
+                {% endfor %}
+            </select><br>
+            <label for="patient_first_name">Patient first name:</label><br>
+            <input type="text" id="patient_first_name" name="patient_first_name"><br>
+            <label for="patient_last_name">Patient last name:</label><br>
+            <input type="text" id="patient_last_name" name="patient_last_name"><br>
+            <label for="date_of_birth">Date of birth:</label><br>
+            <input type="text" id="date_of_birth" name="date_of_birth"><br>
+            <label for="blood_type">Choose a blood type:</label><br>
+            <select name="blood_type" id="blood_type">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="AB">AB</option>
+                <option value="0">0</option>
+            </select><br>
+            <label for="medical_insurance">Choose the medical insurance:</label><br>
+            <select name="medical_insurance" id="medical_insurance">
+                <option value="cass">CASS</option>
+                <option value="private">Private</option>
+            </select><br>
+            <br>
+            <button type="submit">Modify</button>
+        </form>
+        <a href="/patients/afisare_patients">
+            <h2> Inapoi </h2>
+        </a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inventory equipment</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/insert.css">
+    <style>
+        body {
+    background-color: #bc8f8f;
+    }
+        .highlight-dept {
+            color: #2e7d32;
+            cursor: pointer;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <p class="ex1"><b><h1>Inventory equipment</h1></b></p>
+
+        <form action="/inventory/insert_inv" method="post">
+            <label for="eq_input">Choose an equipment:</label>
+            <select id="eq_input" name="eq" required>
+                {% for eq in equipments %}
+                <option value="{{eq[0]}}">
+                    {{eq[1]}}
+                </option>
+                {% endfor %}
+            </select><br>
+            <label for="quan">Quantity:</label><br>
+            <input type="text" id="quan" name="quan"><br>
+            <label for="cond">Choose a condition:</label><br>
+            <select name="cond" id="cond">
+                <option value="New">New</option>
+                <option value="Used">Used</option>
+                <option value="Broken">Broken</option>
+                <option value="Fixed">Fixed</option>
+            </select><br>
+            <label for="buy_date">Buying date:</label><br>
+            <input type="text" id="buy_date" name="buy_date"><br>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+
+        <a href="/inventory/afisare_inv" class="highlight-dept">Afisare inventory equipment
+        </a>
+
+        <a href="/menu">
+            <h2> Inapoi </h2>
+        </a>
+    </div>
+</body>
+</html>

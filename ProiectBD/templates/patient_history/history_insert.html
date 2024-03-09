@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient history</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/insert.css">
+    <style>
+        body {
+    background-color: #94a5a6;
+    }
+        .highlight-dept {
+            color: #d32f2f;
+            cursor: pointer;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Patient history</h1>
+
+        <form action="/patient_history/history_insert" method="post">
+            <label for="patient_input">Choose a patient:</label>
+            <select id="patient_input" name="patient" required>
+                {% for patient in patients %}
+                <option value="{{patient[0]}}">
+                    {{patient[1]}}
+                </option>
+                {% endfor %}
+            </select><br>
+            <label for="mod">Modification:</label><br>
+            <input type="text" id="mod" name="mod"><br>
+            <label for="mod_date">Modification date:</label><br>
+            <input type="text" id="mod_date" name="mod_date"><br>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+
+        <a href="/patient_history/afisare_history" class="highlight-dept">Istoric pacienti
+        </a>
+    </div>
+
+    <a href="/menu">
+        <h2> Inapoi </h2>
+    </a>
+</body>
+</html>
